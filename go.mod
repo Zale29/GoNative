@@ -7,6 +7,8 @@ require (
 	github.com/Masterminds/vcs v1.13.3 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/boltdb/bolt v1.3.1 // indirect
+	github.com/ghodss/yaml v1.0.0 // indirect
+	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/golang/dep v0.5.4 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/jmank88/nuts v0.4.0 // indirect
@@ -18,6 +20,7 @@ require (
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sdboyer/constext v0.0.0-20170321163424-836a14457353 // indirect
+	github.com/tkanos/gonfig v0.0.0-20210106201359-53e13348de2f // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
