@@ -10,7 +10,7 @@ type Configuration struct {
 	DB_NAME     string
 }
 
-func getConfig() Configuration {
+func GetConfig() Configuration {
 	conf := Configuration{}
 	gonfig.GetConf("config/config.json", &conf)
 
