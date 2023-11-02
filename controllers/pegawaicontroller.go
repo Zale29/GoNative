@@ -2,12 +2,15 @@ package controllers
 
 import (
 	"Go/NativeQuery/models"
+	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
-func FetchallPegawai(c echo.Context) error {
-	result, err := models.FetchallPegawai()
+func FetchAllPegawai(c echo.Context) error {
+	result, err := models.FecthAllPegawai()
 
-	if err != {
+	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	}
 

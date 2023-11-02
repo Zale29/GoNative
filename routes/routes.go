@@ -1,8 +1,9 @@
 package routes
 
 import (
+	"Go/NativeQuery/controllers"
 	"net/http"
-	"Go/NativeQuery/controlles"
+
 	"github.com/labstack/echo/v4"
 )
 
@@ -13,7 +14,7 @@ func Init() *echo.Echo {
 		return c.String(http.StatusOK, "Hello This is Echo!")
 	})
 
-	e.GET("/pegawai", controllers.FetchallPegawai)
+	e.GET("/pegawai", controllers.FetchAllPegawai)
 
 	return e
 
