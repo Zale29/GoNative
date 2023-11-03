@@ -15,9 +15,9 @@ func Init() {
 
 	conf := config.GetConfig()
 
-	ConnectionString := conf.DB_USERNAME + " : " + conf.DB_PASSWORD + "@tcp(" + conf.DB_HOST + ":" + conf.DB_PORT + ")/" + conf.DB_NAME
+	connectionString := conf.DB_USERNAME + ":" + conf.DB_PASSWORD + "@tcp(" + conf.DB_HOST + ":" + conf.DB_PORT + ")/" + conf.DB_NAME
 
-	db, err = sql.Open("mysql", ConnectionString)
+	db, err = sql.Open("mysql", connectionString)
 
 	if err != nil {
 		panic("connectionString Error..")
