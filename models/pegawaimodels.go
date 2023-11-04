@@ -45,7 +45,7 @@ func FecthAllPegawai() (Response, error) {
 
 }
 
-func StorePegawai(nama string, alamat string, telepon string) (Response, error){
+func StorePegawai(nama string, alamat string, telepon string) (Response, error) {
 
 	var res Response
 
@@ -61,20 +61,54 @@ func StorePegawai(nama string, alamat string, telepon string) (Response, error){
 
 	result, err := stmt.Exec(nama, alamat, telepon)
 
-	if  err != nil {
+	if err != nil {
 		return res, err
 	}
 
 	lastInsertedId, err := result.LastInsertId()
 
-	if  err != nil {
+	if err != nil {
 		return res, err
 	}
 
 	res.Status = http.StatusOK
 	res.Message = "Success"
 	res.Data = map[string]int64{
-		"last_inserted_id" : lastInsertedId,
+		"last_inserted_id": lastInsertedId,
+	}
+
+	return res, nil
+}
+
+func UpdatePegawai(id int, nama string, alamat string, telepon string) (Response, error) {
+	var res Response
+
+	con := db.CreateCon()
+
+	sqlStatement := "UPDATE pegawai SET nama = ? , alamat = ? , telepon = ? WHERE id = ?"
+
+	stmt, err := con.Prepare(sqlStatement)
+
+	if err != nil {
+		return res, err
+	}
+
+	result, err := stmt.Exec(nama, alamat, telepon, id)
+
+	if err != nil {
+		return res, err
+	}
+
+	RowsAffected, err := result.RowsAffected()
+
+	if err != nil {
+		return res, err
+	}
+
+	res.Status = http.StatusOK
+	res.Message = "Success"
+	res.Data = map[string]int64{
+		"RowsAffected": RowsAffected,
 	}
 
 	return res, nil
