@@ -18,6 +18,9 @@ func Init() *echo.Echo {
 	e.POST("/pegawai", controllers.StorePegawai)
 	e.PUT("/pegawai", controllers.UpdatePegawai)
 	e.DELETE("/pegawai", controllers.DeletePegawai)
+
+	e.GET("/generate-hash/:password", controllers.GenerateFromPassword)
+	e.POST("/login", controllers.Checklogin)
 	return e
 
 }
